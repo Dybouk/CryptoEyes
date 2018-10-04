@@ -7,10 +7,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.CryptoEyes.coin.market.retrofit.CryptoList;
 import com.CryptoEyes.coin.market.retrofit.Datum;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,23 +36,26 @@ public class MainActivity extends AppCompatActivity {
 
         initRecyclerView();
         getCoinList();
+
+
+
     }
 
 
     private void initRecyclerView() {
-        // Lookup the recyclerview in activity layout
+        // recycleview dans le layout
         recyclerView = findViewById(R.id.my_recycler_view);
 
-        // Initialize data
+        // init de la list
         cryptoList = new ArrayList<>();
 
-        // Create adapter passing in the sample user data
+        // adapter dans user
         adapter = new CryptoListAdapter(cryptoList);
 
-        // Attach the adapter to the recyclerview to populate items
+        // adapter
         recyclerView.setAdapter(adapter);
 
-        // Set layout manager to position the items
+        // layout
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         adapter.setClickListener(new CryptoListAdapter.ItemClickListener() {
@@ -72,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<CryptoList> call, Response<CryptoList> response) {
                 CryptoList list = response.body();
 
-                // do not reinitialize an existing reference used by an adapter
-                // add to the existing list
+
                 cryptoList.clear();
                 cryptoList.addAll(list.getData());
 

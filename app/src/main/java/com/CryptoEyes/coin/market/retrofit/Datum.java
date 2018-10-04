@@ -3,9 +3,8 @@ package com.CryptoEyes.coin.market.retrofit;
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-public class Datum implements Serializable
-{
+//copier coller
+public class Datum implements Serializable {
 
     @SerializedName("id")
     @Expose
@@ -44,6 +43,9 @@ public class Datum implements Serializable
     @Expose
     private Quote quote;
     private final static long serialVersionUID = 991796161238960817L;
+
+
+
 
     public Integer getId() {
         return id;

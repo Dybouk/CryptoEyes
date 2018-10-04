@@ -5,24 +5,27 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.CryptoEyes.coin.market.retrofit.Datum;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class CryptoListAdapter extends RecyclerView.Adapter<CryptoListAdapter.ViewHolder> {
 
+    private Context context;
     private List<Datum> mData;
     private ItemClickListener mClickListener;
 
-    // data is passed into the constructor
+    // ajout context pour picasso
     CryptoListAdapter(List<Datum> data) {
+        this.context = context;
         this.mData = data;
     }
 
-    // Usually involves inflating a layout from XML and returning the holder
-    // inflates the row layout from xml when needed
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
@@ -32,14 +35,19 @@ public class CryptoListAdapter extends RecyclerView.Adapter<CryptoListAdapter.Vi
         return viewHolder;
     }
 
-    // Involves populating data into the item through holder
-    // binds the data to the TextView in each row
+    // APP crash avec picasso
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // Get the data model based on position
+
+
+        //Picasso.with(context)
+                //.load("https://res.cloudinary.com/dxi90ksom/image/upload/")
+               // .into(holder.imageView);
+
+
         Datum datum = mData.get(position);
 
-        // Set item views based on your views and data model
+
         TextView name = holder.name;
         name.setText(datum.getName() + " (" + datum.getSymbol() + ")");
 
@@ -63,19 +71,18 @@ public class CryptoListAdapter extends RecyclerView.Adapter<CryptoListAdapter.Vi
 
     }
 
-    // Returns the total count of items in the list
-    // total number of rows
+    // return from List
     @Override
     public int getItemCount() {
         return mData.size();
     }
 
-    // Provide a direct reference to each of the views within a data item
-    // Used to cache the views within the item layout for fast access
-    // stores and recycles views as they are scrolled off screen
+    // ref storé dasn l'ordre
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
+        ImageView imageView;
         TextView name;
         TextView price;
         TextView marketCap;
@@ -84,12 +91,11 @@ public class CryptoListAdapter extends RecyclerView.Adapter<CryptoListAdapter.Vi
         TextView textView24h;
         TextView textView7d;
 
-        // We also create a constructor that accepts the entire item row
-        // and does the view lookups to find each subview
         ViewHolder(View itemView) {
-            // Stores the itemView in a public final member variable that can be used
-            // to access the context from any ViewHolder instance.
+            // acces depuis viewholder
             super(itemView);
+
+            imageView = itemView.findViewById(R.id.imageView);
 
             name = itemView.findViewById(R.id.name);
             price = itemView.findViewById(R.id.price);
@@ -108,17 +114,17 @@ public class CryptoListAdapter extends RecyclerView.Adapter<CryptoListAdapter.Vi
         }
     }
 
-    // convenience method for getting data at click position
+    // position
     Datum getItem(int id) {
         return mData.get(id);
     }
 
-    // allows clicks events to be caught
+    // click event
     void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
-    // parent activity will implement this method to respond to click events
+    // réponse au click event
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }

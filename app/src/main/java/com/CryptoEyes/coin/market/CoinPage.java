@@ -3,9 +3,11 @@ package com.CryptoEyes.coin.market;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.CryptoEyes.coin.market.retrofit.Datum;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,15 +17,21 @@ import java.util.TimeZone;
 
 public class CoinPage extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coin_page);
 
-        Intent intent = getIntent();
+
+
+
+    Intent intent = getIntent();
         Datum datum = (Datum) intent.getSerializableExtra("coin");
 
         TextView name = findViewById(R.id.name);
+
+
         TextView price = findViewById(R.id.price);
         TextView date = findViewById(R.id.date);
 

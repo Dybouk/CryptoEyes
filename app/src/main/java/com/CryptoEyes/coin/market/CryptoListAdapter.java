@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.CryptoEyes.coin.market.retrofit.Datum;
-import com.squareup.picasso.Picasso;
+
 
 import java.util.List;
 
@@ -35,14 +35,14 @@ public class CryptoListAdapter extends RecyclerView.Adapter<CryptoListAdapter.Vi
         return viewHolder;
     }
 
-    // APP crash avec picasso
+    // APP crash avec picasso ou picasso, proguard false
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
 
-        //Picasso.with(context)
-                //.load("https://res.cloudinary.com/dxi90ksom/image/upload/")
-               // .into(holder.imageView);
+       // Picasso.with(context)
+         //       .load("https://res.cloudinary.com/dxi90ksom/image/upload/")
+           //    .into(holder.imageView);
 
 
         Datum datum = mData.get(position);

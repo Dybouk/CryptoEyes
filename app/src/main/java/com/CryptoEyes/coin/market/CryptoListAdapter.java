@@ -9,19 +9,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.CryptoEyes.coin.market.retrofit.Datum;
+import com.squareup.picasso.Picasso;
 
 
+import java.io.File;
 import java.util.List;
 
 public class CryptoListAdapter extends RecyclerView.Adapter<CryptoListAdapter.ViewHolder> {
 
-    private Context context;
     private List<Datum> mData;
     private ItemClickListener mClickListener;
 
-    // ajout context pour picasso
+
     CryptoListAdapter(List<Datum> data) {
-        this.context = context;
+
         this.mData = data;
     }
 
@@ -39,7 +40,9 @@ public class CryptoListAdapter extends RecyclerView.Adapter<CryptoListAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-
+       // Picasso.get()
+               // .load(new File("/Volumes/Files/cryptocurrency-icons-master/32/color/bcd.png"))
+           //     .into(holder.imageView);
        // Picasso.with(context)
          //       .load("https://res.cloudinary.com/dxi90ksom/image/upload/")
            //    .into(holder.imageView);
@@ -77,11 +80,10 @@ public class CryptoListAdapter extends RecyclerView.Adapter<CryptoListAdapter.Vi
         return mData.size();
     }
 
-    // ref storé dasn l'ordre
+    // ref in order
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        // Your holder should contain a member variable
-        // for any view that will be set as you render a row
+
         ImageView imageView;
         TextView name;
         TextView price;

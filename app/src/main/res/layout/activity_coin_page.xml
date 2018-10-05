@@ -60,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="symbol"
+                    android:background="#b2c0df"
                     android:textAppearance="@android:style/TextAppearance.Medium"
                     android:textColor="#00064d" />
 
@@ -68,7 +69,7 @@
                     android:id="@+id/slug"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#b2c0df"
+
                     android:padding="10dp"
                     android:text="name"
                     android:textAppearance="@android:style/TextAppearance.Medium"
@@ -81,6 +82,7 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="volume24h"
+                    android:background="#b2c0df"
                     android:textAppearance="@android:style/TextAppearance.Medium"
                     android:textColor="#00064d" />
 

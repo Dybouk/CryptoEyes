@@ -3,7 +3,7 @@ package com.CryptoEyes.coin.market.retrofit;
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-//copier coller
+
 public class Datum implements Serializable {
 
     @SerializedName("id")

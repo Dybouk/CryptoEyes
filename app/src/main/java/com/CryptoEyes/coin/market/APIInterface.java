@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 
 interface APIInterface {
 
-
+//version pro gratuite
     @Headers("X-CMC_PRO_API_KEY: 3069b872-06b0-40f1-bf44-5a3f7f73d796")
 
     @GET("/v1/cryptocurrency/listings/latest?")
